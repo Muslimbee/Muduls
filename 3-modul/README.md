@@ -1,24 +1,30 @@
-This is a simple TODO list application built with HTML, CSS, and Typscript in React that allows you to manage your tasks. The unique feature of this application is that it uses Local Storage to store your tasks locally in your browser, so you can access and manage them even after closing and reopening the application.
+# React + TypeScript + Vite
 
-## Installation
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-1.Clone or download this repository to your local machine.
-2.Navigate to the project folder.
-3.Open index.html in your preferred web browser.
+Currently, two official plugins are available:
 
-## Usage
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-1.Adding a Task
+## Expanding the ESLint configuration
 
-2.To add a task, simply type your task in the input field and press the "Add" button or hit Enter.
-The task will be added to the list below.
-Editing a Task
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-3.Click on the checkbox next to a task to mark it as complete. Click again to mark it as incomplete.
-Deleting a Task
+- Configure the top-level `parserOptions` property like this:
 
-4.To delete a task, click the "Delete" button next to the task you want to remove.
+```js
+export default {
+  // other rules...
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: ['./tsconfig.json', './tsconfig.node.json'],
+    tsconfigRootDir: __dirname,
+  },
+}
+```
 
-## Local Storage
-
-All your tasks are saved to Local Storage, so they will persist even after you close the browser or refresh the page.
+- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
+- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
